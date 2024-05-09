@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ass9</title>
+  <style>
+    * {
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif Rounded;
+    padding: 0px;
+    margin: 0px;
+    font-size: 30px;
+  }
+    body {
+      padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+  #wrapper-btn
+  {
+    text-align: center;
+    margin-top: 100px;
+  }
+  button
+  {
+    padding: 5px;    
+    display: inline-block;
+    margin: 20px;
+  }
+  #players
+  {
+    width:500px;
+    margin: 20px auto;
+    font-size: 25px;
+    padding: 10px;
+    color:black;
+  }
+  .hide {
+    display: none;
+  }
+  </style>
+</head>
+<body>
+     <div id="wrapper-btn">
+       <button onclick="showNext()">Click to get next player</button>
+       <button onclick="clearIt()">Clear List</button></div>
+      <div id="players"></div> 
+      <script>
+        var players=["Rohit Sharma", "Shubman Gill", "Prithvi Shaw", "Mayank Agarwal", "Abhimanyu Easwaran", "Priyank Panchal",
+                    "Cheteshwar Pujara", "Virat Kohli", "Ajinkya Rahane", "Hanuma Vihari", "KL Rahul",
+                    "Washington Sundar", "Hardik Pandya", "Ravindra Jadeja"];
+        
+        var currentIndex = 0;
+        var ele_players = document.getElementById("players");
+        
+        function showNext() {
+          if (currentIndex < players.length) {
+            var playerName = players[currentIndex];
+            var playerElement = document.createElement("div");
+            playerElement.textContent = playerName;
+            ele_players.appendChild(playerElement);
+            currentIndex++;
+          } else {
+            ele_players.textContent = "End of the list.";
+          }
+        }
+        
+        function clearIt() {
+          ele_players.textContent = "";
+          currentIndex = 0;
+        }
+      </script>
+      
+      
+</body>
+</html>

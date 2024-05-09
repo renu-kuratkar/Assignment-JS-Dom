@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ass5</title>
+    <style>
+      body {
+        text-align: center;
+        font-size: 30px;
+      }
+      #container {
+        display: flex;
+        margin: 40px auto;
+        border: 2px solid black;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+        background-color: aqua;
+      }
+      button {
+        padding: 5px;
+        font-size: 40px;
+        margin: 20px;
+      }
+      button:hover {
+        background-color: palevioletred;
+      }
+      #time {
+        padding: 10px;
+        color: royalblue;
+        font-size: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div>
+        <div>
+          <button id="start" onclick="startTime()">
+            Start
+          </button>
+        </div>
+        <div id="time">0</div>
+        <div>
+          <button id="stop" onclick="stopTime()" disabled>
+            Stop
+          </button>
+        </div>
+      </div>
+      <div>
+        <button id="clear" onclick="clearTime()" disabled>
+          Clear
+        </button>
+      </div>
+    </div>
+    <script>
+      var ele_time = document.getElementById("time");
+      var ele_start = document.getElementById("start");
+      var ele_stop = document.getElementById("stop");
+      var ele_clear = document.getElementById("clear");
+
+      var timer; 
+
+      function startTime() {
+        ele_start.disabled = true;
+        ele_stop.disabled = false;
+        ele_clear.disabled = false;
+        timer = setInterval(updateTime, 1000); 
+      }
+
+      function stopTime() {
+        ele_start.disabled = false;
+        ele_stop.disabled = true;
+        clearInterval(timer); 
+      }
+
+      function clearTime() {
+        ele_time.textContent = '0'; 
+        ele_start.disabled = false;
+        ele_stop.disabled = true;
+        ele_clear.disabled = true;
+        clearInterval(timer); 
+      }
+
+      function updateTime() {
+        var currentTime = parseInt(ele_time.textContent); 
+        ele_time.textContent = currentTime + 1; 
+      }
+    </script>
+  </body>
+</html>

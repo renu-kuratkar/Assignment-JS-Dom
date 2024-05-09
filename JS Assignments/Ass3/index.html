@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment3</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #container {
+            width: 500px;
+            height: 100px;
+            background-color: aqua;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+            border: 10px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+
+
+    </div>
+    <button id="btn" onclick="changeColor(this.id)">Click Me</button>
+
+    <script>
+        var colors = ['Red', 'Green', 'Yellow', 'Blue'];
+        let i = 0;
+
+        let ele_para = document.getElementById("container");
+        let ele_btn = document.getElementById("btn");
+
+
+
+
+        function changeColor(id) {
+            ele_btn.style.backgroundColor = colors[i];
+            ele_para.innerText = colors[i];
+            ele_para.style.color = "pink";
+            ele_para.style.backgroundColor = colors[i];
+            ele_para.style.borderColor = colors[i];
+
+            i = (i + 1) % colors.length;
+
+
+
+
+
+
+
+
+
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>

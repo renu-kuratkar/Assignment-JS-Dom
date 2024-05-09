@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment2</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #one {
+            background-color: red;
+        }
+
+        #two {
+            background-color: green;
+        }
+
+        #three {
+            background-color: yellow;
+        }
+
+        #four {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="one" onclick="changeColor('red')">Red</button>
+    <button id="two" onclick="changeColor('green')">Green</button>
+    <button id="three" onclick="changeColor('yellow')">Yellow</button>
+    <button id="four" onclick="changeColor('blue')">Blue</button>
+
+
+    <script>
+        function changeColor(color) {
+            document.body.style.backgroundColor = color;
+        }
+
+    </script>
+
+</body>
+
+</html>

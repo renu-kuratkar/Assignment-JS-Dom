@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change border of box</title>
+    <style>
+        #box {
+            height: 200px;
+            width: 350px;
+            border: 2px solid black;
+            margin: 20px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: aqua;
+            
+        }
+        #btn-container
+        {
+            margin-left: auto;
+            margin-right: auto;
+            width:50%;
+            text-align: center;
+        }
+        .myborder
+        {
+            /* border: 4px solid black; */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box">
+
+
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium, hic suscipit beatae quia eum totam quidem
+        facilis, fugiat nemo adipisci a. Earum quasi nisi est voluptatibus. Libero cum odio quos.
+        Vitae culpa debitis nam ipsam quae. Vel odit natus rerum fuga rem porro inventore exercitationem possimus
+        officia perspiciatis. Aliquam et consequuntur debitis voluptatibus at repellendus cumque deleniti sapiente
+        beatae a?
+
+    </div>
+
+    <div id="btn-container" class="myborder">
+        <button onclick="changeBorder('5px solid red')">Solid Border</button>
+        <button onclick="changeBorder('5px double green')">Double Border</button>
+        <button onclick="changeBorder('5px dotted yellow')">Dotted Border</button>
+    </div>
+
+    <script>
+
+        function changeBorder(borderStyle) 
+        {
+            var box = document.getElementById('box');
+            box.style.border = borderStyle;
+        }
+    </script>
+</body>
+
+</html>

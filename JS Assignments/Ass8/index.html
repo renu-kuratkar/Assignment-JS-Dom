@@ -1,0 +1,112 @@
+<!--  save this file as index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Ass8</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      body,
+      html {
+        margin: 0px;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+      #container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 250px;
+        margin: 20px auto;
+        border: 2px solid red;
+        text-align: center;
+        padding: 20px;
+      }
+      #description,
+      #price {
+        margin: 10px;
+        color: blue;
+      }
+      
+      #btn-add,
+      #btn-sub {
+        width: 25%;
+        background-color: paleturquoise;
+        padding: 5px;
+        font-size: 20px;
+      }
+      #qty {
+        width: 50%;
+        padding-top: 7px;
+        color: red;
+        font-size: 150%;
+      }
+      #total {
+        width: 100%;
+        padding-top: 7px;
+        color: red;
+        font-size: 150%;
+      }
+      #calculation {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .hide {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <img src="./images/parle g.png" alt="" />
+      <div id="description">Parle - G Biscuits (40gm)</div>
+      <div id="price">Price : Rs. 5/-</div>
+      <div id="container-details">
+        <div id="calculation">
+          <button id="btn-sub" onclick="updateTotal()">-</button>
+          <div id="qty">0</div>
+          <button id="btn-add" onclick="updateTotal()">+</button>
+          <div id="total"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    
+  var ele_btn_add = document.getElementById("btn-add");
+  var ele_btn_sub = document.getElementById("btn-sub");
+  var ele_qty = document.getElementById("qty");
+  var ele_total = document.getElementById("total");
+  
+  var price = 5; // Price per item
+  var quantity = 0; // Initial quantity
+  
+  function updateTotal() {
+    ele_total.textContent = "Total: Rs. " + (price * quantity) + "/-";
+  }
+  
+  ele_btn_add.addEventListener("click", function() {
+    quantity++;
+    ele_qty.textContent = quantity;
+    updateTotal();
+  });
+  
+  ele_btn_sub.addEventListener("click", function() {
+    if (quantity > 0) {
+      quantity--;
+      ele_qty.textContent = quantity;
+      updateTotal();
+    }
+  });
+
+
+    
+  </script>
+</html>

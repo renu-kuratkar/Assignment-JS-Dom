@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Ass19</title>
+  <style>
+    body {
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      font-size: 16px;
+    }
+    #container {
+      background-color: palegreen;
+      width: 50%;
+      margin: 20px auto;
+      padding: 20px;
+      text-align: center;
+      color:black;
+    }
+    #container div {
+      margin: 20px;
+    }
+    input[type="text"] {
+      margin: 10px auto;
+      font-size: 30px;
+      width: 50%;
+      text-align: center;
+    }
+    button {
+      font-size: 15px;
+      padding: 5px;
+    }
+    #salary {
+      color: green;
+      font-size: 30px;
+      background-color: lightpink;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div>Days: <input type="text" id="days" /></div>
+    <div>
+      Male<input type="radio" id="male" value="male" name="gender" onclick="selectGender(this.value)" checked/>
+      Female<input type="radio" id="female" value="female" name="gender" onclick="selectGender(this.value)"/>
+    </div>
+    <div><button id="btn" onclick="showSalary()">Calculate Salary</button></div>
+    <div id="salary"></div>
+  </div>
+  
+  <script>
+    var days, salary, wage, bonus, gender = "male";
+    var ele_days = document.getElementById("days");
+    var ele_salary = document.getElementById("salary");
+
+    function showSalary() {
+      // Retrieve the number of days from the input field
+      days = parseInt(ele_days.value);
+
+      // Calculate the salary
+      calSalary();
+
+      // Display the result in the #salary element
+      ele_salary.textContent = "Salary: " + salary + " INR";
+    }
+
+    function calSalary() {
+      if (days > 22) {
+        wage = 500;
+      } else {
+        wage = 350;
+      }
+      if (gender == "female") {
+        wage -= 100;
+      }
+      if (days > 15 && gender == "male") {
+        bonus = 2000;
+      } else if (days > 15 && gender == "female") {
+        bonus = 1000;
+      } else {
+        bonus = 0;
+      }
+      salary = days * wage + bonus;
+    }
+
+    function selectGender(selectedGender) {
+      gender = selectedGender;
+    }
+  </script>
+</body>
+</html>
